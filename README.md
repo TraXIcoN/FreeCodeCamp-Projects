@@ -22,5 +22,8 @@ Pull requests are the best way to propose changes to the codebase (we use [Githu
 5. Make sure your code lints.
 6. Issue that pull request!
 
+## Solution Format
+There is no solution format as such.\
+Just make sure that your solution is properly commented and working.
 
 
