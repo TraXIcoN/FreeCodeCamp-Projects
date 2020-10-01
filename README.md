@@ -1,5 +1,7 @@
 # FreeCodeCamp-Projects
 
+Here's the link for the [freeCodeCamp curriculum](https://www.freecodecamp.org/learn/)
+
 # Contributing to this repo 
 We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
 
