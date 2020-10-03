@@ -10,5 +10,6 @@ class fibonacciNumber {
             result *= i;
         }
         System.out.print(result);
+        inScan.close();
     }
 }
