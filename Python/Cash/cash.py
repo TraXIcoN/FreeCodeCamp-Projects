@@ -1,30 +1,29 @@
-#this program figures out the lowest number of coins should be given for change
-
+# This program figures out the lowest number of coins should be given for change
 def main():
     change = get_positive()
 
-    # converting change to cents
+    # Converting change to cents
     cents = round(change * 100)
 
-    # counting the coins
-    # quaters
-    quaters = cents // 25
-    cents = cents - quaters * 25
+    # Counting the coins
+    # Quarters
+    quarters = cents // 25
+    cents = cents - quarters * 25
 
-    # dimes
+    # Dimes
     dimes = cents // 10
     cents = cents - dimes * 10
 
-    #nickels
+    # Nickels
     nickels = cents // 5
     cents = cents - nickels * 5
 
-    # pennies
+    # Pennies
     pennies = cents // 1
 
-    # giving a change to user
-    if quaters > 0:
-        print(f"{quaters} quaters", end=" ")
+    # Giving change to the user
+    if quarters > 0:
+        print(f"{quarters} quarters", end=" ")
         
     if dimes > 0:
         print(f",{dimes} dimes", end=" ")
@@ -35,7 +34,7 @@ def main():
     if pennies > 0:
         print(f",{pennies} pennies", end=" ")
 
-# creating a get postitive function
+# Creating a get postitive function
 def get_positive():
     while True:
         n = float(input("Change owed: "))
@@ -43,5 +42,5 @@ def get_positive():
             break
     return n
 
-# calling main function
+# Calling main function
 main()
