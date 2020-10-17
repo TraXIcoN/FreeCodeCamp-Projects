@@ -1,0 +1,79 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+  <h2>{{listing.title}}</h2>
+  {% if wlist %}
+  <button type="submit" onclick="location.href='{% url 'watchlist' list=listing.id remove=1 %}'" class="btn btn-primary">Remove from watchlist</button>
+  {% else %}
+  <button type="submit" onclick="location.href='{% url 'watchlist' list=listing.id remove=0 %}'" class="btn btn-primary">Add to watchlist</button>
+  {% endif %}
+  <br>
+  <img style="width: 400px;height: 400px;" src="{{listing.image_link}}" alt="{{listing.title}}">
+  <br>
+  <small style="background-color:#ffffcc">created on {{listing.date}}</small>
+  <br><br><br><br>
+  <div>
+    {{listing.description}}
+  </div>
+  {% if not listing.closed %}
+  <div>
+    {% if amount == listing.startbid %}
+    <b>Current bid:</b><i style="color:green">NO BID</i>
+    {% else %}
+    <b>Current bid:</b> <i style="color:green">{{amount}}</i>
+    {% endif %}
+    <br>
+    <b>Startbid:</b><i style="color:blue">  {{listing.startbid}}</i>
+
+  </div>
+  <div>
+    <form  action="{% url 'bid' i=listing.id %}" method="post">
+      {% csrf_token %}
+       <input type="number" id="price"  name="quantity" min="{{amount}}" value = "{{amount}}">
+       <input type="submit" name="Place Bid" value="Place Bid">
+    </form>
+  </div>
+  <div>
+    <br><br>
+    {% if listing in own  %}
+    <button type="button" onclick="location.href='{% url 'close' list=listing.id %}'" class="btn btn-danger">Close Auction</button>
+    {% endif %}
+    <br><br>
+    <form  action="{% url 'comment' li=listing.id %}" method="post">
+      {% csrf_token %}
+      <<textarea id="comment" name="name" rows="1" cols="40"></textarea>
+      <input type="submit" name="comment" value="comment">
+    </form>
+  </div>
+  <br><br><br><br>
+  <h3 style="text-decoration:underline;">Comments</h3>
+  <br><br>
+  {% for c in comments %}
+  <a href="#" class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 style="background-color:#ffff66;text-decoration:underline" class="mb-1">{{c.commenter.username}}</h5>
+        <small class="text-muted">{{c.d}}</small>
+      </div>
+      <p style="border-left: 6px solid red;background-color: lightgrey;" class="mb-1">{{c.comment}}</p>
+    </a>
+  {% endfor %}
+  {% else %}
+  {% if r %}
+  <p><a href="#" class="text-success">Congratulations! You have won this auction</a></p>
+  {% endif %}
+  <div class="alert alert-danger" role="alert">
+  This auction has been closed
+ </div>
+ <br>
+ <br>
+ {% for c in comments %}
+ <a href="#" class="list-group-item list-group-item-action">
+     <div  class="d-flex w-100 justify-content-between">
+       <h5 class="mb-1">{{c.commmenter.username}}</h5>
+       <small class="text-muted">{{c.d}}</small>
+     </div>
+     <p class="mb-1">{{c.comment}}</p>
+   </a>
+ {% endfor %}
+  {% endif %}
+{% endblock %}

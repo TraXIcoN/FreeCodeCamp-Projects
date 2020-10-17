@@ -1,0 +1,9 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+{% for i in clist %}
+<button type="button" onclick="location.href='{% url 'category' cat=i  %}'" name="button">{{i}}</button>
+{% endfor %}
+
+{% endblock %}
