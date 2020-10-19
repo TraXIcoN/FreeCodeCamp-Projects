@@ -4,8 +4,9 @@ shape = input("Enter the character corresponding to the shape ")
 
 if shape == "C" :
   r = float(input("Enter the radius of the circle"))
-  print("Perimeter is ",(2 * 3.14 * r))
-  print("Area is ",(3.14 * r * r))
+  print("Perimeter is ",(2 * math.pi * r))
+  #math.pi = 3.141592
+  print("Area is ",(math.pi * r * r))
 
 elif  shape == "R" :
   l = float(input("Enter the length of the rectangle"))
