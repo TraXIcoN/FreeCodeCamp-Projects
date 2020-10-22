@@ -1,0 +1,34 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Watchlist</h2>
+
+        {% if present == 0 and user.is_authenticated %}
+      <b><h1 style="margin:auto;width:50%;border:3px solid green;padding:10px;">Watchlist is empty &#128555;</h1></b>
+        {% endif %}
+        <ul>
+          {% for i,a in List %}
+          <div class="card" style="width: 18rem;">
+      <img src="{{i.image_link}}" class="card-img-top" alt="...">
+      <div style="background-color:#669900;" class="card-body">
+        <h5 class="card-title">{{i.title}}</h5>
+        <p class="card-text"><ul>
+          <li>
+            {{i.description}}
+          </li>
+          <li>
+            CurrentPrice:{{a}}
+          </li>
+          <br><br>
+          <small>Created on {{i.date}}</small>
+        </ul></p>
+        <a href="{% url 'listview' item=i.id %}" class="btn btn-primary">View Listing</a>
+      </div>
+    </div>
+          {% endfor %}
+
+        </ul>
+
+
+        TODO
+    {% endblock %}
