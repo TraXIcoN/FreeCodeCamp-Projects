@@ -1,4 +1,4 @@
-#Generate all balanced Parenthesis
+#Generate all balanced parentheses
 
 n = int(input("Enter number: "))
 
