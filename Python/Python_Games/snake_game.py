@@ -37,7 +37,6 @@ def our_snake(snake_block, snake_list):
     for x in snake_list:
         pygame.draw.rect(dis, black, [x[0], x[1], snake_block, snake_block])
 
-
 #Funtion to display MESSAGE on Screen
 def message(msg, color):
     mesg = font_style.render(msg, True, color)
@@ -48,7 +47,6 @@ def gameLoop():
     #Game Variables
     game_over = False
     game_close = False
-
 
     snake_block = 10
     snake_speed = 8
@@ -127,7 +125,6 @@ def gameLoop():
         snake_Head.append(x1)
         snake_Head.append(y1)
         snake_List.append(snake_Head)
-
 
         if len(snake_List) > Length_of_snake:  # cutting the head of snake
             del snake_List[0]
