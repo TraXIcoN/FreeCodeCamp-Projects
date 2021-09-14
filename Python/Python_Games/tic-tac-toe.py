@@ -36,7 +36,6 @@ def disableButton():
     b9.configure(state=DISABLED)
 
 
-
 def btnClick(bs):
     global bclick, flag, player2_name, player1_name, playerb, pa
     if bs["text"] == " " and bclick == True:
@@ -47,7 +46,6 @@ def btnClick(bs):
         checkForWin()
         flag += 1
 
-
     elif bs["text"] == " " and bclick == False:
         bs["text"] = "O"
         bclick = True
@@ -56,6 +54,7 @@ def btnClick(bs):
     else:
         tkinter.messagebox.showinfo("Tic-Tac-Toe", "Button already Clicked!")
 
+        
 def checkForWin():
     if (b1['text'] == 'X' and b2['text'] == 'X' and b3['text'] == 'X' or
         b4['text'] == 'X' and b5['text'] == 'X' and b6['text'] == 'X' or
@@ -124,7 +123,3 @@ tk.mainloop()
 
 
 # In[ ]:
-
-
-
-
