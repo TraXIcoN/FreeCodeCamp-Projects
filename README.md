@@ -8,20 +8,20 @@ We love your input! We want to make contributing to this project as easy and tra
 - Reporting a bug
 - Discussing the current state of the code
 - Submitting a fix
-- Proposing new features
+- Proposing soluctions with beter time/space complexity
 - Becoming a maintainer
 
-## We Develop with Github
-We use github to host code, to track issues and feature requests, as well as accept pull requests.
 
 ## We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
 Pull requests are the best way to propose changes to the codebase (we use [Github Flow](https://guides.github.com/introduction/flow/index.html)). We actively welcome your pull requests:
 
 1. Fork the repo and create your branch from `master`.
-2. If you've added code that should be tested, add tests.
-3. If you've changed APIs, update the documentation.
-4. Ensure the test suite passes.
-5. Make sure your code lints.
+2. Clone that branch onto your local machine using `git clone <https link of your branch>`
+3. Make required changes and commit them using:
+4. Make sure your code lints.
+5.     git add filename
+       git commit -m "Bried description about your PR"
+       git push origin 
 6. Issue that pull request!
 
 ## Solution Format
