@@ -1,0 +1,5 @@
+comtypes==1.1.10
+PyPDF2==1.26.0
+pypiwin32==223
+pyttsx3==2.90
+pywin32==301
