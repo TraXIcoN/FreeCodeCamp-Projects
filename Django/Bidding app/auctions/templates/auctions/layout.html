@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}Auctions{% endblock %}</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link href="{% static 'auctions/styles.css' %}" rel="stylesheet">
+
+        <style>
+body {
+ background-image: url('https://www.freecodecamp.org/news/content/images/size/w2000/2020/04/w-qjCHPZbeXCQ-unsplash.jpg');
+ background-repeat: no-repeat;
+ background-attachment: scroll;
+ background-size: cover;
+}
+
+.nav-item{
+  border: 3px solid #9900cc;
+  border-radius: 4px;
+}
+.extra{
+  background-image: url("https://mcdn.wallpapersafari.com/medium/71/27/xc81hK.jpg");
+}
+</style>
+    </head>
+    <body>
+      <div class="extra">
+
+        <h1 style="color:#000099;text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;" >Auctions</h1>
+        <div style="text-decoration:underline;">
+          {% if user.is_authenticated %}
+          Signed in as <strong>{{ user.username }}</strong>.
+          {% else %}
+          Not signed in.
+          {% endif %}
+        </div>
+      </div>
+      <ul style="background-color:black;" class="list-group list-group-horizontal">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'index' %}">Active Listings</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'category' cat=" " %}">Categories</a>
+            </li>
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'show_watchlist' %}">Watchlist</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'createlist' %}">create listing</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+            {% endif %}
+        </ul>
+        <hr>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

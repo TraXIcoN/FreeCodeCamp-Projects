@@ -1,0 +1,17 @@
+{% extends "auctions/layout.html" %}
+{% block body %}
+<div>
+  {% if error %}
+  <div class="alert alert-warning" role="alert">
+  Form info was invalid. please fill the form again
+</div>
+  {% endif %}
+</div>
+
+<form  action="{% url 'createlist' %}" id="lform" method="post">
+  {% csrf_token %}
+  {{form.as_p}}
+  <input type="submit" name="Create Listing" class="btn btn-info" value="Create Listing">
+</form>
+
+{% endblock %}
