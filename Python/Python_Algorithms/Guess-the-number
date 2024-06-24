@@ -1,0 +1,22 @@
+import random #Random number generator
+import time
+
+for item in 'LOADING':
+    time.sleep(1)
+    print(item,end =' ',)
+
+    print(' ')
+secret_number = random.randint(1,10) #CHooses a random number between 1 to 10
+i=0 #Counter is assinged
+guess_count = 0
+guess_limit =3
+while guess_count <guess_limit:
+    guess=int(input('Guess:'))
+    guess_count+=1
+    if guess==secret_number:
+        print('You won!')
+        print('The number was:',secret_number)
+        break
+else:
+    print('Sorry you failed')
+    print('The number was :',secret_number)
