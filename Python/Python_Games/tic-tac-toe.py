@@ -5,11 +5,16 @@
 
 # In[5]:
 
+print("---------------------------------------")
+print("Welcome to tic tac toe")
+print("---------------------------------------")
+name1=input("Player 1 name:")
+name2=input("Player 2 name:")
 
 from tkinter import *
 import tkinter.messagebox
 tk = Tk()
-tk.title("Tic Tac Toe")
+tk.title("Tic Tac Toe game")
 
 pa = StringVar()
 playerb = StringVar()
@@ -54,7 +59,7 @@ def btnClick(bs):
         checkForWin()
         flag += 1
     else:
-        tkinter.messagebox.showinfo("Tic-Tac-Toe", "Button already Clicked!")
+        tkinter.messagebox.showinfo("Tic-Tac-Toe", "Button has been already Clicked!")
 
 def checkForWin():
     if (b1['text'] == 'X' and b2['text'] == 'X' and b3['text'] == 'X' or
@@ -70,7 +75,7 @@ def checkForWin():
         tkinter.messagebox.showinfo("Tic-Tac-Toe", pa)
 
     elif(flag == 8):
-        tkinter.messagebox.showinfo("Tic-Tac-Toe", "It is a Tie")
+        tkinter.messagebox.showinfo("Tic-Tac-Toe", "No winner, there is a tie")
 
     elif (b1['text'] == 'O' and b2['text'] == 'O' and b3['text'] == 'O' or
           b4['text'] == 'O' and b5['text'] == 'O' and b6['text'] == 'O' or
